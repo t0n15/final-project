@@ -95,6 +95,7 @@ $(function() {
                     thesisObject[inputs[i].name] = inputs[i].value;
                 }
                 $.post('/api/thesis', thesisObject);
+                alert('saved.');
                 return false;
             });
 
@@ -117,7 +118,7 @@ $(function() {
                     };
                 };
                 $('.app-content').html(getTemplate('tpl-thesis-view-item', list[data]));
-                facebook(document, 'script', 'facebook-jssdk');
+                fbcomment(document, 'script', 'facebook-jssdk');
             })
         },
         save: function(object) {
@@ -169,13 +170,13 @@ $(function() {
 
     });
     
-<script>(function(d, s, id) {
+ function fbcomment(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=289410594443464";
   fjs.parentNode.insertBefore(js, fjs);
-}</script>
+}
     app.init();
 
 
